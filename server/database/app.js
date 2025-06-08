@@ -31,12 +31,12 @@ try {
 }
 
 
-// Express route to home
+// Express route to home x
 app.get('/', async (req, res) => {
     res.send("Welcome to the Mongoose API")
 });
 
-// Express route to fetch all reviews
+// Express route to fetch all reviews x
 app.get('/fetchReviews', async (req, res) => {
   try {
     const documents = await Reviews.find();
@@ -46,7 +46,7 @@ app.get('/fetchReviews', async (req, res) => {
   }
 });
 
-// Express route to fetch reviews by a particular dealer
+// Express route to fetch reviews by a particular dealer x
 app.get('/fetchReviews/dealer/:id', async (req, res) => {
   try {
     const documents = await Reviews.find({dealership: req.params.id});
@@ -56,19 +56,34 @@ app.get('/fetchReviews/dealer/:id', async (req, res) => {
   }
 });
 
-// Express route to fetch all dealerships
+// Express route to fetch all dealerships x
 app.get('/fetchDealers', async (req, res) => {
-//Write your code here
+    try {
+        const documents = await Dealerships.find();
+        res.json(documents);
+      } catch (error) {
+        res.status(500).json({ error: 'Error fetching documents' });
+      }
 });
 
-// Express route to fetch Dealers by a particular state
+// Express route to fetch Dealers by a particular state x
 app.get('/fetchDealers/:state', async (req, res) => {
-//Write your code here
+    try {
+        const documents = await Dealerships.find({state: req.params.state});
+        res.json(documents);
+      } catch (error) {
+        res.status(500).json({ error: 'Error fetching documents' });
+      }
 });
 
 // Express route to fetch dealer by a particular id
 app.get('/fetchDealer/:id', async (req, res) => {
-//Write your code here
+    try {
+        const documents = await Dealerships.find({id: req.params.id});
+        res.json(documents);
+      } catch (error) {
+        res.status(500).json({ error: 'Error fetching documents' });
+      }
 });
 
 //Express route to insert review
