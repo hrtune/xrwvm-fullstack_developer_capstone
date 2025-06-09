@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+url = (
+    "https://hrtune-8000."
+    "theianext-0-labs-prod-misc-tools-us-east-0."
+    "proxy.cognitiveclass.ai/"
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0"
+SECRET_KEY = (
+    "django-insecure-ccow$tz_=9%d"
+    "xu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,6 +38,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "https://hrtune-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/",
 ]
+
 CSRF_TRUSTED_ORIGINS = [
     "https://hrtune-8000.theianext-0-labs-prod-misc-tools-us-east-0.proxy.cognitiveclass.ai/",
     "https://hrtune-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
