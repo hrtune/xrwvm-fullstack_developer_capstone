@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import "./Dealers.css";
 import "../assets/style.css";
 import Header from '../Header/Header';
+import "./PostReview.css"
 
 
 const PostReview = () => {
@@ -91,33 +92,64 @@ const PostReview = () => {
 
 
   return (
-    <div>
-      <Header/>
-      <div  style={{margin:"5%"}}>
-      <h1 style={{color:"darkblue"}}>{dealer.full_name}</h1>
-      <textarea id='review' cols='50' rows='7' onChange={(e) => setReview(e.target.value)}></textarea>
-      <div className='input_field'>
-      Purchase Date <input type="date" onChange={(e) => setDate(e.target.value)}/>
-      </div>
-      <div className='input_field'>
-      Car Make 
-      <select name="cars" id="cars" onChange={(e) => setModel(e.target.value)}>
-      <option value="" selected disabled hidden>Choose Car Make and Model</option>
-      {carmodels.map(carmodel => (
-          <option value={carmodel.CarMake+" "+carmodel.CarModel}>{carmodel.CarMake} {carmodel.CarModel}</option>
-      ))}
-      </select>        
-      </div >
+    <div className="review-container">
+  <Header />
+  <br />
+  <div className="form-wrapper">
+    <h1 className="dealer-name">{dealer.full_name}</h1>
 
-      <div className='input_field'>
-      Car Year <input type="int" onChange={(e) => setYear(e.target.value)} max={2023} min={2015}/>
-      </div>
+    <div className="input-group">
+      <label htmlFor="review">Your Review</label>
+      <textarea
+        id="review"
+        rows="7"
+        placeholder="Write your experience here..."
+        onChange={(e) => setReview(e.target.value)}
+      ></textarea>
+    </div>
 
-      <div>
-      <button className='postreview' onClick={postreview}>Post Review</button>
-      </div>
+    <div className="input-group">
+      <label htmlFor="purchase-date">Purchase Date</label>
+      <input
+        type="date"
+        id="purchase-date"
+        onChange={(e) => setDate(e.target.value)}
+      />
     </div>
+
+    <div className="input-group">
+      <label htmlFor="car-model">Car Make & Model</label>
+      <select
+        id="car-model"
+        defaultValue=""
+        onChange={(e) => setModel(e.target.value)}
+      >
+        <option value="" disabled>Choose Car Make and Model</option>
+        {carmodels.map((carmodel, index) => (
+          <option key={index} value={`${carmodel.CarMake} ${carmodel.CarModel}`}>
+            {carmodel.CarMake} {carmodel.CarModel}
+          </option>
+        ))}
+      </select>
     </div>
+
+    <div className="input-group">
+      <label htmlFor="car-year">Car Year</label>
+      <input
+        type="number"
+        id="car-year"
+        min="2015"
+        max="2023"
+        placeholder="e.g., 2020"
+        onChange={(e) => setYear(e.target.value)}
+      />
+    </div>
+
+    <button className="post-review-btn" onClick={postreview}>
+      Post Review
+    </button>
+  </div>
+</div>
   )
 }
 export default PostReview
