@@ -108,3 +108,5 @@ def initiate():
             type=data["type"],
             year=data["year"],
         )
+    
+    return car_model_data
