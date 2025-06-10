@@ -76,15 +76,24 @@ const PostReview = () => {
     }
   }
 
-  const get_cars = async ()=>{
-    const res = await fetch(carmodels_url, {
-      method: "GET"
-    });
-    const retobj = await res.json();
+  const get_cars = async () => {
+
+    try {
+        const res = await fetch(carmodels_url, {
+        method: "GET"
+        });
+
+        const retobj = await res.json();
     
-    let carmodelsarr = Array.from(retobj.CarModels)
-    setCarmodels(carmodelsarr)
+        let carmodelsarr = Array.from(retobj.CarModels)
+        setCarmodels(carmodelsarr)
+    } catch (err) {
+        console.error("Failed to fetch car models:", err);
+    }
+
   }
+
+
   useEffect(() => {
     get_dealer();
     get_cars();
@@ -152,4 +161,5 @@ const PostReview = () => {
 </div>
   )
 }
+
 export default PostReview

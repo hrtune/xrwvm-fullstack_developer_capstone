@@ -15,8 +15,8 @@ from pathlib import Path
 
 url = (
     "https://hrtune-8000."
-    "theianext-0-labs-prod-misc-tools-us-east-0."
-    "proxy.cognitiveclass.ai/"
+    "theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy."
+    "cognitiveclass.ai"
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

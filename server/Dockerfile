@@ -11,13 +11,6 @@ WORKDIR $APP
 # Install the requirements
 COPY requirements.txt $APP
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    libpq-dev \
-    libjpeg-dev \
-    zlib1g-dev \
-    && rm -rf /var/lib/apt/lists/*
-
 RUN pip3 install -r requirements.txt
 
 # Copy the rest of the files
